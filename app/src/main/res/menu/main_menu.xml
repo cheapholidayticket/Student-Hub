@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_all_notice"
+            android:icon="@drawable/view_notice"
+            android:title="View Notice" />
+
+<!--        <item-->
+<!--            android:id="@+id/nav_all_clubs"-->
+<!--            android:icon="@drawable/ic_baseline_sports_24"-->
+<!--            android:title="Club Activities" />-->
+
+<!--        <item-->
+<!--            android:id="@+id/nav_all_attractions"-->
+<!--            android:icon="@drawable/attractions"-->
+<!--            android:title="Attractions" />-->
+    </group>
+
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_login"
+                    android:icon="@drawable/login"
+                    android:title="Login" />
+
+                <item
+                    android:id="@+id/nav_profile"
+                    android:icon="@drawable/psb_website"
+                    android:title="PSB Address" />
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/logout"
+                    android:title="Logout" />
+            </group>
+        </menu>
+    </item>
+
+
+    <item android:title="Let's Talk">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_baseline_share_24"
+                    android:title="Share"/>
+
+                <item
+                    android:id="@+id/nav_email"
+                    android:icon="@drawable/username_email_icon"
+                    android:title="Email"/>
+            </group>
+        </menu>
+    </item>
+
+</menu>

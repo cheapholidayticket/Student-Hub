@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:background="@color/lightWhite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_icon"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/home_back_icon"/>
+
+
+        </RelativeLayout>
+
+            <TextView
+                android:layout_below="@id/home_back_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tasks"
+                android:textSize="36sp"
+                android:padding="10dp"/>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/card1"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dashboard View"
+                    android:textSize="25sp"
+                    android:padding="25dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <Button
+                    android:id="@+id/button_allJob"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_margin="10dp"
+                    android:background="#00000000"
+                    android:padding="20dp"/>
+                
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:padding="10dp"
+                    android:src="@drawable/icon_noticeboard"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+            </RelativeLayout>
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/card2"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post New Notice"
+                android:textSize="25sp"
+                android:padding="25dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:id="@+id/button_postJob"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_margin="10dp"
+                android:background="#00000000"
+                android:padding="20dp"/>
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:padding="10dp"
+                android:src="@drawable/icons_newnotice"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/card4"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Push Notification"
+                    android:textSize="25sp"
+                    android:padding="25dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_margin="10dp"
+                    android:background="#00000000"
+                    android:padding="20dp"/>
+
+                <ImageView
+                    android:padding="10dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/icons_push_notifications"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+
+
+
+        <!--            <Button-->
+<!--                -->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_gravity="center_vertical|center_horizontal"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/background_color"-->
+<!--                android:text=-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--                android:textColor="@android:color/white" />-->
+
+<!--            <Button-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_gravity="center_vertical|center_horizontal"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/background_color"-->
+<!--                android:text="View My Post"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--                android:textColor="@android:color/white" />-->
+
+
+<!--            <Button-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_gravity="center_vertical|center_horizontal"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/background_color"-->
+<!--                android:text="Push Notification"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--                android:textColor="@android:color/white" />-->
+
+
+    </LinearLayout>
+</ScrollView>

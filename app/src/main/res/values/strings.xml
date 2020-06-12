@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Student Hub</string>
+    <string name="see_all_job_post">See All Notice</string>
+    <string name="prompt_search">Search Text</string>
+
+    <!--school categories for student chat helps -->
+    <string name="Business">Business</string>
+    <string name="Engineer">Engineer</string>
+    <string name="Foundation">Foundation</string>
+    <string name="Science">Science</string>
+
+    <!--club categories-->
+    <string name="community">Community Service Club</string>
+    <string name="dance">Dance Club</string>
+    <string name="music">Music Club</string>
+    <string name="photography">Photography Club</string>
+    <string name="sports">Sports Club</string>
+
+    <!--titles-->
+    <string name="categories">Categories</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
+    <string name="viewnotice">View Notice</string>
+    <string name="searchText">Search here...</string>
+    <string name="startupHeading">Best Educational Institute</string>
+    <string name="startupSmallHeading">50-year heritage of producing industry-ready graduates, We are the Academy of the Future</string>
+
+    <string name="navigation_drawer_open">Open Drawer</string>
+    <string name="navigation_drawer_close">Close Drawer</string>
+</resources>
