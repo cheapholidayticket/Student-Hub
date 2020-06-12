@@ -1,7 +1,10 @@
 package com.example.jobportalapp.Admin;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -42,10 +45,23 @@ public class MainActivity extends AppCompatActivity {
     //progress dialog
     private ProgressDialog mDialog;
 
+    public static final String CHANNEL_ID = "simplified coding";
+    public static final String CHANNEL_NAME = "simple coding";
+    public static final String CHANNEL_DESC = "simplified coding notifications";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
+                    CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription(CHANNEL_DESC);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -154,6 +170,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
@@ -183,5 +201,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+
+
     }
 }
