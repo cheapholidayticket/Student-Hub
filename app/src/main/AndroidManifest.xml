@@ -9,15 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<!--        <activity android:name=".Dashboard_AllView"></activity>-->
+        <activity android:name=".Login.ForgetPasswordActivity"></activity>
+        <!-- <activity android:name=".Dashboard_AllView"></activity> -->
         <activity android:name=".EditNotice" />
         <activity android:name=".ViewNotice" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".methodtesting.Recycler2" /> <!-- <activity android:name=".DashboardHome"></activity> -->
-<!--        <activity-->
-<!--            android:name=".AllJobActivity$PostNoticeActivity"-->
-<!--            android:parentActivityName=".AllJobActivity"-->
-<!--            android:windowSoftInputMode="stateHidden" />-->
+        <!-- <activity -->
+        <!-- android:name=".AllJobActivity$PostNoticeActivity" -->
+        <!-- android:parentActivityName=".AllJobActivity" -->
+        <!-- android:windowSoftInputMode="stateHidden" /> -->
         <activity
             android:name=".InsertJobPostActivity"
             android:parentActivityName=".PostJobActivity"
@@ -52,14 +53,11 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".MyFirebaseMessagingService">
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-
 
         <meta-data
             android:name="preloaded_fonts"

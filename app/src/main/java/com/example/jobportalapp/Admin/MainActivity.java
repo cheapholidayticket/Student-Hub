@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.jobportalapp.HomeActivity;
+import com.example.jobportalapp.Login.ForgetPasswordActivity;
 import com.example.jobportalapp.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -73,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
         LoginFunction();
 
     }
+
+    public void forgetPassword (View view){
+        Intent intent = new Intent (MainActivity.this, ForgetPasswordActivity.class);
+        startActivity(intent);
+    }
+
 
     private void LoginFunction(){
         email = findViewById(R.id.email_Login);
