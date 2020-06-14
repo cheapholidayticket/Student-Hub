@@ -144,6 +144,8 @@ public class InsertJobPostActivity extends AppCompatActivity {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {
                                                         Toast.makeText(InsertJobPostActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent (InsertJobPostActivity.this, PostJobActivity.class );
+                                                        startActivity(intent);
                                                     }
                                                 });
                                             }

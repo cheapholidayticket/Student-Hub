@@ -35,7 +35,7 @@
 
         <TextView
             android:id="@+id/notice_description_alljobpost"
-            android:layout_below="@id/timeAgo_alljobpost"
+            android:layout_below="@id/notice_date_alljobpost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/imageViewAdd_alljobpost"
@@ -47,10 +47,10 @@
             android:textSize="13sp"/>
 
             <TextView
-            android:id="@+id/timeAgo_alljobpost"
+            android:id="@+id/notice_date_alljobpost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="timeAgo"
+            android:text="date"
             android:padding="10dp"
             android:layout_toRightOf="@id/imageViewAdd_alljobpost"
             android:layout_below="@id/notice_title_alljobpost"/>

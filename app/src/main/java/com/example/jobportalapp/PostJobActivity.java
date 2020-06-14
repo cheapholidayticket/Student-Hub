@@ -72,7 +72,7 @@ public class PostJobActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull MyViewHolder holder, final int position
                     , @NonNull Data model) {
                 holder.mTitle.setText("" + model.getTitle());
-                //holder.mDate.setText("" + model.getDate());
+                holder.mDate.setText("" + model.getDate());
                 holder.mDescription.setText("" + model.getDescription());
                 Picasso.get().load(model.getImageUrl()).into(holder.imageView);
 

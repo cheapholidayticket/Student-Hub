@@ -336,6 +336,7 @@ public class DashboardHome extends AppCompatActivity implements NavigationView.O
 
             case R.id.nav_logout:
                 mAuth.signOut();
+
                 break;
 
             case R.id.nav_share:
