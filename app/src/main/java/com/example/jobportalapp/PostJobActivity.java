@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,9 +25,8 @@ import com.squareup.picasso.Picasso;
 public class PostJobActivity extends AppCompatActivity {
 
     private FloatingActionButton floatingActionButton_postjob;
-
+    private Toolbar toolbar;
     //recycler view
-
     private RecyclerView recyclerView;
 
     //firebase
@@ -39,6 +39,8 @@ public class PostJobActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_job);
+        toolbar = findViewById(R.id.myToolbar);
+        setSupportActionBar(toolbar);
 
         floatingActionButton_postjob = findViewById(R.id.floatingActionButton);
 

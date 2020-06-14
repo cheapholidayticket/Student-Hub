@@ -113,7 +113,7 @@ public class AllJobActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull AllViewHolder holder, int position, @NonNull final Data model) {
                 holder.mTitle.setText(model.getTitle());
-//                holder.mDate.setText(model.getDate());
+                holder.mDate.setText(model.getDate());
                 holder.mDescription.setText(model.getDescription());
                 Picasso.get().load(model.getImageUrl()).into(holder.imageView);
 
@@ -141,7 +141,7 @@ public class AllJobActivity extends AppCompatActivity {
 
                         Intent intent = new Intent(getApplicationContext(), ViewNotice.class);
                         intent.putExtra("title", model.getTitle());
-//                        intent.putExtra("date", model.getDate());
+                        intent.putExtra("date", model.getDate());
                         intent.putExtra("description", model.getDescription());
                         startActivity(intent);
 
