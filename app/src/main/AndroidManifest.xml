@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jobportalapp">
+    package="com.example.studentHub">
 
     <application
         android:allowBackup="true"
@@ -9,42 +9,42 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login.ForgetPasswordActivity"></activity>
+        <activity android:name="com.example.studentHub.Login.ForgetPasswordActivity"></activity>
         <!-- <activity android:name=".Dashboard_AllView"></activity> -->
-        <activity android:name=".EditNotice" />
-        <activity android:name=".ViewNotice" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".methodtesting.Recycler2" /> <!-- <activity android:name=".DashboardHome"></activity> -->
+        <activity android:name="com.example.studentHub.EditNotice" />
+        <activity android:name="com.example.studentHub.ViewNotice" />
+        <activity android:name="com.example.studentHub.HomeActivity" />
+        <activity android:name="com.example.studentHub.methodtesting.Recycler2" /> <!-- <activity android:name=".DashboardHome"></activity> -->
         <!-- <activity -->
-        <!-- android:name=".AllJobActivity$PostNoticeActivity" -->
-        <!-- android:parentActivityName=".AllJobActivity" -->
+        <!-- android:name=".AllPostActivity$PostNoticeActivity" -->
+        <!-- android:parentActivityName=".AllPostActivity" -->
         <!-- android:windowSoftInputMode="stateHidden" /> -->
         <activity
-            android:name=".InsertJobPostActivity"
-            android:parentActivityName=".PostJobActivity"
+            android:name="com.example.studentHub.InsertPostActivity"
+            android:parentActivityName="com.example.studentHub.PostNoticeActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".DashboardHome"
-            android:parentActivityName=".HomeActivity"
+            android:name="com.example.studentHub.DashboardHome"
+            android:parentActivityName="com.example.studentHub.HomeActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".PostJobActivity"
-            android:parentActivityName=".HomeActivity"
+            android:name="com.example.studentHub.PostNoticeActivity"
+            android:parentActivityName="com.example.studentHub.HomeActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".AllJobActivity"
+            android:name="com.example.studentHub.AllPostActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Admin.Registration"
+            android:name="com.example.studentHub.Admin.Registration"
             android:windowSoftInputMode="stateHidden" /> <!-- <activity -->
         <!-- android:name=".Admin.MainActivity" -->
         <!-- android:windowSoftInputMode="stateHidden" /> -->
         <activity
-            android:name=".Admin.MainActivity"
-            android:parentActivityName=".HomeActivity"
+            android:name="com.example.studentHub.Admin.MainActivity"
+            android:parentActivityName="com.example.studentHub.HomeActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Login.StartUp"
+            android:name="com.example.studentHub.Login.StartUp"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,7 +53,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MyFirebaseMessagingService">
+        <service android:name="com.example.studentHub.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
