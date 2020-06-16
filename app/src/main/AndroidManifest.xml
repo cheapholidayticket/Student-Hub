@@ -35,7 +35,7 @@
             android:name="com.example.studentHub.AllPostActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.example.studentHub.Admin.Registration"
+            android:name="com.example.studentHub.Login.Registration"
             android:windowSoftInputMode="stateHidden" /> <!-- <activity -->
         <!-- android:name=".Admin.MainActivity" -->
         <!-- android:windowSoftInputMode="stateHidden" /> -->

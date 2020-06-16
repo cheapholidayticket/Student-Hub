@@ -10,7 +10,6 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.studentHub.Admin.MainActivity;
-import com.example.studentHub.Admin.Registration;
 import com.example.studentHub.DashboardHome;
 import com.example.studentHub.R;
 

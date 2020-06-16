@@ -4,11 +4,14 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.studentHub.HomeActivity;
 import com.example.studentHub.Login.ForgetPasswordActivity;
+import com.example.studentHub.Login.Registration;
 import com.example.studentHub.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 101;
     private EditText email;
     private EditText password;
+    CheckBox remember;
 
     private Button buttonLogin;
     private Button buttonRegistration;
@@ -87,6 +92,14 @@ public class MainActivity extends AppCompatActivity {
         buttonLogin = findViewById(R.id.button_Login);
         buttonRegistration = findViewById(R.id.button_Register);
         buttonGoogleLogin = findViewById(R.id.button_RegistrationGoogle);
+        remember = findViewById(R.id.checkBox);
+        SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+        String checkbox = preferences.getString("remember", "");
+        if (checkbox.equals ("true")) {
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+        } else if (checkbox.equals ("false")){
+            Toast.makeText(this, "Please sign in", Toast.LENGTH_SHORT).show();
+        }
 
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +137,31 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+
+            }
+        });
+
+        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
+                if (compoundButton.isChecked()){
+
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember", "true");
+                    editor.apply();
+                    //Toast.makeText(MainActivity.this, "Checked", Toast.LENGTH_SHORT).show();
+
+                } else if (!compoundButton.isChecked()){
+
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember", "true");
+                    editor.apply();
+                    //Toast.makeText(MainActivity.this, "Unchecked", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
