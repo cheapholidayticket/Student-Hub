@@ -8,17 +8,19 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-import com.example.studentHub.Admin.MainActivity;
-import com.example.studentHub.R;
+import com.example.studentHub.Login.StartUp;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
 
     private Button buttonViewAllJob;
     private Button buttonPostJob;
-    //private Toolbar toolbar;
+    private Button buttonPushNotification;
+    private Toolbar toolbar;
     private FirebaseAuth mAuth;
 
     @Override
@@ -26,15 +28,17 @@ public class HomeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-//        getSupportActionBar().setTitle("Job Portal App");
+
+        toolbar = findViewById(R.id.myToolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);   //show back button
 
         mAuth = FirebaseAuth.getInstance();
 
         buttonViewAllJob = findViewById(R.id.button_allJob);
         buttonPostJob = findViewById(R.id.button_postJob);
-
-        //toolbar = findViewById(R.id.toolbar_home);
-        //setSupportActionBar(toolbar);
+        buttonPushNotification = findViewById(R.id.button_allpushNotificationWebView);
 
         buttonViewAllJob.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,23 +55,40 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
+        buttonPushNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent (getApplicationContext(), MessageWebView.class));
+            }
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mainmenu, menu);
+        getMenuInflater().inflate(R.menu.home_menu, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
-    //todo logout option here to use
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.logout:
+            case R.id.home_logout:
                 mAuth.signOut();
-                startActivity(new Intent (getApplicationContext(), MainActivity.class));
+                startActivity(new Intent (getApplicationContext(), StartUp.class));
                 break;
+
+            case R.id.home_viewAll:
+                startActivity(new Intent (getApplicationContext(), AllPostActivity.class));
+                break;
+
+
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);

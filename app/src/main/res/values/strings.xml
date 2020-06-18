@@ -16,6 +16,14 @@
     <string name="photography">Photography Club</string>
     <string name="sports">Sports Club</string>
 
+
+    <!--club description-->
+    <string name="communityDes">Giving back to the community is at the heart of our Future Makers, our torchbearers do so at events such as Food Donation Drive and Festive Celebrations.</string>
+    <string name="danceDes">If you’re into dancing and have unique moves to showcase, or just want to learn new tricks, you are more than welcome to join the club.</string>
+    <string name="musicDes">If you have a deep passion for music, this is the creative outlet for you. Imagine a group of talented individuals getting together for a jamming session.</string>
+    <string name="photographyDes">Our shutterbugs capture every Instagram-worthy moment. If you would like to dabble in the art of photography bring your camera and get into action</string>
+    <string name="sportsDes">Various activities like badminton, basketball, rock-climbing, running, and cycling are organised to engage students off-campus.</string>
+
     <!--titles-->
     <string name="categories">Categories</string>
     <string name="login">Login</string>

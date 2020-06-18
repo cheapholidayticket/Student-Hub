@@ -4,47 +4,47 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/psbicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher"
+        android:roundIcon="@drawable/psbicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.studentHub.Login.ForgetPasswordActivity"></activity>
-        <!-- <activity android:name=".Dashboard_AllView"></activity> -->
-        <activity android:name="com.example.studentHub.EditNotice" />
-        <activity android:name="com.example.studentHub.ViewNotice" />
-        <activity android:name="com.example.studentHub.HomeActivity" />
-        <activity android:name="com.example.studentHub.methodtesting.Recycler2" /> <!-- <activity android:name=".DashboardHome"></activity> -->
+        <activity android:name=".MessageWebView"></activity>
+        <activity android:name=".Login.ForgetPasswordActivity" /> <!-- <activity android:name=".Dashboard_AllView"></activity> -->
+        <activity android:name=".EditNotice" />
+        <activity android:name=".ViewNotice" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".methodtesting.Recycler2" /> <!-- <activity android:name=".DashboardHome"></activity> -->
         <!-- <activity -->
         <!-- android:name=".AllPostActivity$PostNoticeActivity" -->
         <!-- android:parentActivityName=".AllPostActivity" -->
         <!-- android:windowSoftInputMode="stateHidden" /> -->
         <activity
-            android:name="com.example.studentHub.InsertPostActivity"
-            android:parentActivityName="com.example.studentHub.PostNoticeActivity"
+            android:name=".InsertPostActivity"
+            android:parentActivityName=".PostNoticeActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.example.studentHub.DashboardHome"
-            android:parentActivityName="com.example.studentHub.HomeActivity"
+            android:name=".DashboardHome"
+            android:parentActivityName=".HomeActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.example.studentHub.PostNoticeActivity"
-            android:parentActivityName="com.example.studentHub.HomeActivity"
+            android:name=".PostNoticeActivity"
+            android:parentActivityName=".HomeActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.example.studentHub.AllPostActivity"
+            android:name=".AllPostActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.example.studentHub.Login.Registration"
+            android:name=".Login.Registration"
             android:windowSoftInputMode="stateHidden" /> <!-- <activity -->
         <!-- android:name=".Admin.MainActivity" -->
         <!-- android:windowSoftInputMode="stateHidden" /> -->
         <activity
-            android:name="com.example.studentHub.Admin.MainActivity"
-            android:parentActivityName="com.example.studentHub.HomeActivity"
+            android:name=".Admin.MainActivity"
+            android:parentActivityName=".HomeActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.example.studentHub.Login.StartUp"
+            android:name=".Login.StartUp"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,7 +53,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.example.studentHub.MyFirebaseMessagingService">
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

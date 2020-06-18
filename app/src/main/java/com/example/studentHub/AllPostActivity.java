@@ -16,13 +16,15 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.studentHub.Login.StartUp;
 import com.example.studentHub.Model_helper_classes.Data;
-import com.example.studentHub.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,16 +47,17 @@ public class AllPostActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FirebaseAuth mAuth;
     EditText inputSearch;
-
-
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_job);
+        setContentView(R.layout.activity_all_post);
 
-//        assert getSupportActionBar() != null;   //null check
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
+        toolbar = findViewById(R.id.myToolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);   //show back button
 
         //database
 //        mAuth = FirebaseAuth.getInstance();
@@ -103,7 +106,9 @@ public class AllPostActivity extends AppCompatActivity {
 
     }
 
-    private void LoadData(String data) {
+
+
+    private void LoadData(final String data) {
 
         Query query = mAllJobPost.orderByChild("title").startAt(data.toLowerCase()).endAt(data.toLowerCase() + "\uf8ff");
 
@@ -112,11 +117,26 @@ public class AllPostActivity extends AppCompatActivity {
 
         adapter = new FirebaseRecyclerAdapter<Data, AllViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull AllViewHolder holder, int position, @NonNull final Data model) {
+            protected void onBindViewHolder(@NonNull AllViewHolder holder, final int position, @NonNull final Data model) {
                 holder.mTitle.setText(model.getTitle());
                 holder.mDate.setText(model.getDate());
                 holder.mDescription.setText(model.getDescription());
                 Picasso.get().load(model.getImageUrl()).into(holder.imageView);
+
+                //click listener to view notice
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(getApplicationContext(), ViewNotice.class);
+                        intent.putExtra("key", getRef(position).getKey());
+//                        intent.putExtra("title", data.getTitle());
+//                        intent.putExtra("date", model.getDate());
+//                        intent.putExtra("description", model.getDescription());
+                        startActivity(intent);
+
+                    }
+                });
 
 
                 //getting the time-ago- to work//
@@ -136,18 +156,6 @@ public class AllPostActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Intent intent = new Intent(getApplicationContext(), ViewNotice.class);
-                        intent.putExtra("title", model.getTitle());
-                        intent.putExtra("date", model.getDate());
-                        intent.putExtra("description", model.getDescription());
-                        startActivity(intent);
-
-                    }
-                });
             }
 
             @NonNull
@@ -167,6 +175,7 @@ public class AllPostActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.allpost_menu, menu);
         super.onCreateOptionsMenu(menu);
 
         SearchManager searchManager = (SearchManager) getApplicationContext().getSystemService(Context.SEARCH_SERVICE);
@@ -203,13 +212,28 @@ public class AllPostActivity extends AppCompatActivity {
 
         mSearchView.setOnQueryTextListener(queryTextListener);
 
-
         return true;
 
-        //return super.onCreateOptionsMenu(menu);
+
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+        switch (item.getItemId()){
+            case R.id.allpost_logout:
+                mAuth.signOut();
+                startActivity(new Intent (getApplicationContext(), StartUp.class));
+                break;
 
+            case R.id.allpost_home:
+                startActivity(new Intent (getApplicationContext(), AllPostActivity.class));
+                break;
 
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

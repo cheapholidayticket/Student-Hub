@@ -282,11 +282,11 @@ public class DashboardHome extends AppCompatActivity implements NavigationView.O
                 (this, LinearLayoutManager.HORIZONTAL, false));
 
         ArrayList<ClubHelper> clubs = new ArrayList<>();
-        clubs.add(new ClubHelper(R.drawable.musicclub, "Music Club", "Description"));
-        clubs.add(new ClubHelper(R.drawable.communityclub, "Community Club", "Description"));
-        clubs.add(new ClubHelper(R.drawable.sportsclub, "Sports Club", "Description"));
-        clubs.add(new ClubHelper(R.drawable.photoclub, "Photo Club", "Description"));
-        clubs.add(new ClubHelper(R.drawable.danceclub, "Dance Club", "Description"));
+        clubs.add(new ClubHelper(R.drawable.musicclub, "Music Club", getString(R.string.musicDes) ));
+        clubs.add(new ClubHelper(R.drawable.communityclub, "Community Club", getString(R.string.communityDes)));
+        clubs.add(new ClubHelper(R.drawable.sportsclub, "Sports Club", getString(R.string.sportsDes)));
+        clubs.add(new ClubHelper(R.drawable.photoclub, "Photo Club", getString(R.string.photographyDes)));
+        clubs.add(new ClubHelper(R.drawable.danceclub, "Dance Club", getString(R.string.danceDes)));
 
         clubAdapter = new ClubsAdapter(clubs, this);
         clubRecyclerView.setAdapter(clubAdapter);

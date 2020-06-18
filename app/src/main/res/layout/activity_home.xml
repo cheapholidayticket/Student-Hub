@@ -12,32 +12,33 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/back_icon"
-                android:padding="10dp"
-                android:layout_centerVertical="true"
-                android:id="@+id/home_back_icon"/>
+        <include
+            android:id="@+id/myToolbar"
+            layout="@layout/toolbar"/>
 
 
-        </RelativeLayout>
+        <!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?actionBarSize">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/back_icon"-->
+<!--                android:padding="10dp"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:id="@+id/home_back_icon"/>-->
+
+
+<!--        </RelativeLayout>-->
 
             <TextView
-                android:layout_below="@id/home_back_icon"
+                android:layout_below="@id/myToolbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tasks"
-                android:textSize="36sp"
+                android:text="Moderator Tasks"
+                android:textSize="30sp"
                 android:padding="10dp"/>
-
-
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -132,6 +133,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <Button
+                    android:id="@+id/button_allpushNotificationWebView"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:layout_margin="10dp"
