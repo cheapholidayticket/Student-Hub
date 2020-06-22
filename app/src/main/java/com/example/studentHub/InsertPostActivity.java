@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.studentHub.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -95,8 +94,8 @@ public class InsertPostActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String title = job_title.getText().toString().trim().toLowerCase();
-                String description = job_description.getText().toString().trim().toLowerCase();
+                String title = job_title.getText().toString().trim();//;.toLowerCase();
+                String description = job_description.getText().toString().trim();//.toLowerCase();
                 //String skills = job_skills.getText().toString().trim().toLowerCase(); //not used
                 //String salary = job_salary.getText().toString().trim().toLowerCase();
 
@@ -125,7 +124,6 @@ public class InsertPostActivity extends AppCompatActivity {
                                                 hashMap.put("description", description);
                                                 hashMap.put("id", id);
                                                 hashMap.put("imageUrl", uri.toString());
-                                                //hashMap.put("salary", salary ); //campus
                                                 hashMap.put("title", title);
 
                                                 //time in miliseconds
@@ -147,6 +145,7 @@ public class InsertPostActivity extends AppCompatActivity {
                                                         Toast.makeText(InsertPostActivity.this, "Success", Toast.LENGTH_SHORT).show();
                                                         Intent intent = new Intent (InsertPostActivity.this, PostNoticeActivity.class );
                                                         startActivity(intent);
+                                                        finish();
                                                     }
                                                 });
                                             }

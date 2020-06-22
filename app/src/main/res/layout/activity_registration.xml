@@ -13,14 +13,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <include
+                android:id="@+id/myToolbar"
+                layout="@layout/toolbar"/>
 
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/registration_backButton"
-                android:padding="5dp"
-                android:src="@drawable/back_icon"/>
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/registration_backButton"-->
+<!--                android:padding="5dp"-->
+<!--                android:src="@drawable/back_icon"/>-->
 
 
             <TextView
@@ -42,6 +45,7 @@
                 android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/full_name_registration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_create_black_24dp"
@@ -54,14 +58,15 @@
                 app:boxStrokeWidthFocused="2dp"
                 app:boxStrokeColor="@color/black"
                 style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/full_name_registration"
+
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </com.google.android.material.textfield.TextInputEditText>
+                    android:layout_height="71dp"></com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/registration_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:startIconDrawable="@drawable/username_icon"
@@ -75,7 +80,7 @@
                     app:boxStrokeColor="@color/black"
                     style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/registration_username"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                     </com.google.android.material.textfield.TextInputEditText>
@@ -125,6 +130,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/registration_Phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:startIconDrawable="@drawable/phone_icon"
@@ -138,7 +144,7 @@
                     app:boxStrokeColor="@color/black"
                     style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/registration_Phone"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="phone">

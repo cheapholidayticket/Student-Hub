@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studentHub.Model_helper_classes.AttractionsHelper;
-import com.example.studentHub.R;
 
 import java.util.ArrayList;
 
@@ -86,10 +85,17 @@ class AttractionsAdapter extends RecyclerView.Adapter <AttractionsAdapter.Attrac
 
 
                 case 1:
-                    String url = "https://www.rwsentosa.com/en/attractions/sea-aquarium/explore";
-                    Intent intent = new Intent (Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(url));
+                    Uri uri1 = Uri.parse("https://www.facebook.com/ResortsWorldatSentosa/posts/sea-aquarium-marine-life-park-has-the-worlds-largest-acrylic-panel-at-the-open-o/453860704692429/");
+                    Intent likeIng1 = new Intent(Intent.ACTION_VIEW, uri1);
 
+                    likeIng1.setPackage("com.facebook.katana");
+
+                    try {
+                        view.getContext().startActivity(likeIng1);
+                    } catch (ActivityNotFoundException e) {
+                        view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("https://www.facebook.com/ResortsWorldatSentosa/posts/sea-aquarium-marine-life-park-has-the-worlds-largest-acrylic-panel-at-the-open-o/453860704692429/")));
+                    }
                     break;
 
                 case 2:

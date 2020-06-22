@@ -76,18 +76,19 @@ public class HomeActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.home_logout:
-                mAuth.signOut();
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent (getApplicationContext(), StartUp.class));
+                finish();
                 break;
-
-            case R.id.home_viewAll:
-                startActivity(new Intent (getApplicationContext(), AllPostActivity.class));
-                break;
-
 
             case android.R.id.home:
                 onBackPressed();
                 return true;
+
+
+            case R.id.home_viewAll:
+                startActivity(new Intent (getApplicationContext(), AllPostActivity.class));
+                break;
 
         }
 

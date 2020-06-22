@@ -43,7 +43,6 @@ import com.squareup.picasso.Picasso;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.TimeZone;
 
 
 public class DashboardHome extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -224,7 +223,8 @@ public class DashboardHome extends AppCompatActivity implements NavigationView.O
         adapter = new FirebaseRecyclerAdapter<Data, AllViewHolder>(options) {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
-            protected void onBindViewHolder(@NonNull AllViewHolder holder, final int position, @NonNull final Data model) {
+            protected void onBindViewHolder(@NonNull AllViewHolder holder, final int position,
+                                            @NonNull final Data model) {
                 holder.mTitle.setText(model.getTitle());
                 holder.mDate.setText(model.getDate());
                 holder.mDescription.setText(model.getDescription());
@@ -250,14 +250,16 @@ public class DashboardHome extends AppCompatActivity implements NavigationView.O
               //  SimpleDateFormat f = new SimpleDateFormat("yyyy.MM.dd SS HH:mm:ss");
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-                sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+                //sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
                 try {
                     long time = sdf.parse(DateTime).getTime(); //time of uploading the post
                     long now = System.currentTimeMillis();  //time of viewing the post
+
                     CharSequence ago =
                             DateUtils.getRelativeTimeSpanString(time, now, DateUtils.MINUTE_IN_MILLIS);
                     Log.d("myTime", "onBindViewHolder: "+ago);
                     holder.timeAgo.setText(""+ago);
+
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -300,11 +302,11 @@ public class DashboardHome extends AppCompatActivity implements NavigationView.O
                 (this, LinearLayoutManager.HORIZONTAL, false));
 
         ArrayList<AttractionsHelper> attractions = new ArrayList<>();
-        attractions.add(new AttractionsHelper(R.drawable.uss, "Universal Studio", "Description"));
-        attractions.add(new AttractionsHelper(R.drawable.sea, "SEA Aquarium", "Description"));
-        attractions.add(new AttractionsHelper(R.drawable.zoo, "Singapore Zoo", "Description"));
-        attractions.add(new AttractionsHelper(R.drawable.gardens, "Gardens by the Bay", "Description"));
-        attractions.add(new AttractionsHelper(R.drawable.sentosa, "Sentosa Island", "Description"));
+        attractions.add(new AttractionsHelper(R.drawable.uss, "Universal Studio", "Southeast Asia’s first and only Universal Studios park, featuring 24 rides in seven themed zones."));
+        attractions.add(new AttractionsHelper(R.drawable.sea, "SEA Aquarium", "Come face-to-face with more than 100k marine animals of over 800 species marine realm at S.E.A. Aquarium."));
+        attractions.add(new AttractionsHelper(R.drawable.zoo, "Singapore Zoo", "Set in a rainforest environment, Singapore Zoo's world-famous Open Concept”."));
+        attractions.add(new AttractionsHelper(R.drawable.gardens, "Garden by the Bay", "A showpiece of horticulture and garden artistry that presents the plant kingdom in a whole new way"));
+        attractions.add(new AttractionsHelper(R.drawable.sentosa, "Sentosa Island", "Sentosa is a sunny island in Singapore, home to themed attractions, award-winning spas, golden sandy beaches"));
 
         attractionsAdapterAdapter = new AttractionsAdapter(attractions);
         attractionsRecyclerView.setAdapter(attractionsAdapterAdapter);
@@ -339,7 +341,6 @@ public class DashboardHome extends AppCompatActivity implements NavigationView.O
                 mAuth.signOut();
                 Snackbar.make(findViewById(android.R.id.content),"Logout Successful",
                         Snackbar.LENGTH_SHORT).show();
-
                 break;
 
             case R.id.nav_share:

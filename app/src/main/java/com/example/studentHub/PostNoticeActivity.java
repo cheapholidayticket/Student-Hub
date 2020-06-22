@@ -2,7 +2,11 @@ package com.example.studentHub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -13,8 +17,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.studentHub.Login.StartUp;
 import com.example.studentHub.Model_helper_classes.Data;
-import com.example.studentHub.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,6 +27,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class PostNoticeActivity extends AppCompatActivity {
 
@@ -72,6 +79,7 @@ public class PostNoticeActivity extends AppCompatActivity {
             }
         });
 
+
         options = new FirebaseRecyclerOptions.Builder<Data>()
                 .setQuery(JobPostDatabase, Data.class).build();
         adapter = new FirebaseRecyclerAdapter<Data, MyViewHolder>(options) {
@@ -89,10 +97,30 @@ public class PostNoticeActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), EditNotice.class);
                         intent.putExtra("postjobkey", getRef(position).getKey());
                         startActivity(intent);
+
                     }
                 });
 
-//                holder.mCampus.setText("" + model.getCampus());
+
+                String DateTime = model.getDateTime();
+
+                //  SimpleDateFormat f = new SimpleDateFormat("yyyy.MM.dd SS HH:mm:ss");
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+                //sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+                try {
+                    long time = sdf.parse(DateTime).getTime(); //time of uploading the post
+                    long now = System.currentTimeMillis();  //time of viewing the post
+
+                    CharSequence ago =
+                            DateUtils.getRelativeTimeSpanString(time, now, DateUtils.MINUTE_IN_MILLIS);
+                    Log.d("myTime", "onBindViewHolder: "+ago);
+                    holder.timeAgo.setText(""+ago);
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
 
             }
 
@@ -106,6 +134,44 @@ public class PostNoticeActivity extends AppCompatActivity {
         };
         adapter.startListening();
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.postnotice_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+
+            case R.id.postnotice_home:
+                startActivity(new Intent (getApplicationContext(), HomeActivity.class));
+                break;
+
+            case R.id.postnotice_dashboard:
+                startActivity(new Intent(getApplicationContext(), DashboardHome.class));
+                break;
+
+            case R.id.postnotice_logout:
+                mAuth.signOut();
+                startActivity(new Intent (getApplicationContext(), StartUp.class));
+                break;
+
+            case R.id.postnotice_viewAll:
+                startActivity(new Intent(getApplicationContext(), AllPostActivity.class));
+
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+        }
+
+
+
+        return super.onOptionsItemSelected(item);
     }
 }
 

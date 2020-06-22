@@ -38,7 +38,7 @@
             android:fontFamily="sans-serif"
             android:text="Title"
             android:textColor="@color/colorAccent"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/notice_date_alljobpost"
@@ -54,7 +54,7 @@
             android:fontFamily="sans-serif"
             android:text="Description"
             android:textColor="@color/colorAccent"
-            android:textSize="15sp"/>
+            android:textSize="13sp"/>
 
         <!--        <TextView-->
         <!--            android:id="@+id/notice_campus"-->

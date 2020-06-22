@@ -40,14 +40,16 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
                         if (task.getResult().getSignInMethods().isEmpty()) {
-                            Toast.makeText(ForgetPasswordActivity.this, "Kindly input email to reset password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ForgetPasswordActivity.this,
+                                    "Kindly input email to reset password", Toast.LENGTH_SHORT).show();
                         } else {
                             mAuth.sendPasswordResetEmail(resetEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
 
-                                    Toast.makeText(ForgetPasswordActivity.this, "Kindly check email to reset password", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ForgetPasswordActivity.this,
+                                            "Kindly check email to reset password", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(ForgetPasswordActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     } else  {

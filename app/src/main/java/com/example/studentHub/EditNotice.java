@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.studentHub.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -140,8 +139,13 @@ public class EditNotice extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
                                 mPublicDatabase.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
-                                    public void onSuccess(Void aVoid) { //todo toast etc to inform
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(EditNotice.this, "Post Deleted!", Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent (getApplicationContext(), PostNoticeActivity.class);
+                                        startActivity(intent);
+                                        finish();
                                     }
+
                                 });
                             }
                         });
@@ -153,17 +157,13 @@ public class EditNotice extends AppCompatActivity {
         imageViewEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //1. delete the image
-
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, REQUEST_CODE_IMAGE);
-
             }
         });
-
 
         buttonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,13 +174,14 @@ public class EditNotice extends AppCompatActivity {
 
                 StorageReference storageReference = FirebaseStorage
                         .getInstance().getReference().child(imageUrl);  //storagereference
-                StorageReference mReff=FirebaseStorage.getInstance().getReferenceFromUrl(imageUrl);
+                StorageReference mReff = FirebaseStorage.getInstance().getReferenceFromUrl(imageUrl);
 
                 mReff.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         uploadImage(title,description);
-                        Toast.makeText(EditNotice.this, "Image Deleted now you can update", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(EditNotice.this, "Image Deleted now you can update",
+//                                Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -212,11 +213,15 @@ public class EditNotice extends AppCompatActivity {
                                             public void onComplete(@NonNull Task task) {
                                                 if (task.isSuccessful())
                                                 {
-                                                    Toast.makeText(EditNotice.this, "Data Updated", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(EditNotice.this, "Post Updated", Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent (getApplicationContext(), AllPostActivity.class);
+                                                    finish();
                                                 }
                                                 else
                                                 {
                                                     Toast.makeText(EditNotice.this, "Not Updated!", Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent (getApplicationContext(), AllPostActivity.class);
+                                                    finish();
                                                 }
                                             }
                                         });
